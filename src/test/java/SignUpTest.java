@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class SignUpTest extends Screenshot {
+public class SignUpTest extends TestObject {
 
     @DataProvider(name = "getUser")
     public Object[][] getUser() {

@@ -4,9 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.awt.*;
-
-public class LogOutTest extends Screenshot{
+public class LogOutTest extends TestObject {
 
     @DataProvider(name="getUser")
     public Object[][] getUsers(){

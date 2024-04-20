@@ -1,30 +1,20 @@
 import Objects.Header;
 import Objects.HomePage;
+import Objects.LikeButtonObject;
 import Objects.LoginPage;
-import Objects.ProfilePage;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.bouncycastle.cms.RecipientId.password;
-
-public class LikeButtonTest extends Screenshot{
+public class LikeButtonTest extends TestObject {
 
     @DataProvider(name="getUser")
     public Object[][] getUsers(){
@@ -37,6 +27,7 @@ public class LikeButtonTest extends Screenshot{
         HomePage homePage = new HomePage(webDriver);
         Header header = new Header(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
+        LikeButtonObject likeButton = new LikeButtonObject(webDriver);
 
         homePage.navigateTo();
         Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded");
@@ -54,21 +45,12 @@ public class LikeButtonTest extends Screenshot{
 
         loginPage.clickSignIn();
 
-        WebDriverWait wait = new WebDriverWait(this.getWebDriver(), Duration.ofSeconds(15));
-        WebElement likeButton = wait.until(ExpectedConditions.visibilityOf(webDriver.
-                findElement(By.xpath("//div[@class='post-info']/div/i[@class='far fa-heart fa-2x']"))));
+        likeButton.clickLikeButton();
 
-        likeButton.click();
+        likeButton.waitForMessage();
 
-        WebDriverWait waitTwo = new WebDriverWait(this.getWebDriver(), Duration.ofSeconds(15));
-        WebElement postLikeMessage = waitTwo.until(ExpectedConditions.visibilityOf(webDriver.findElement
-                (By.xpath("//*[@id='toast-container']//*[@aria-label='Post liked']"))));
-
-        Actions actionsForElements = new Actions(webDriver);
-        actionsForElements.moveToElement(postLikeMessage).perform();
-
+        String actualText = likeButton.waitForMessage();
         String expectedText = "Post liked";
-        String actualText = postLikeMessage.getText();
         Assert.assertEquals(actualText,expectedText, "The actual text is not matching the expected text");
         }
 }
