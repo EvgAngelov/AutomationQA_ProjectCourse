@@ -1,0 +1,9 @@
+Objects\ProfilePage.class
+Objects\HomePage.class
+org\example\Main.class
+Objects\DeletePost.class
+Objects\ExitPage.class
+Objects\LoginPage.class
+Factory\Header.class
+Objects\Header.class
+Objects\RegisterPage.class

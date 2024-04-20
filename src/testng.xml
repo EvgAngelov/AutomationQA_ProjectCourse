@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Web test suite" verbose="1">
+    <test name="All Tests">
+        <classes>
+            <class name="LoginTest"></class>
+            <class name="SignUpTest"></class>
+            <class name="LikeButtonTest"></class>
+            <class name="DeletePostTest"></class>
+            <class name="LogOutTest"></class>
+        </classes>
+    </test>
+</suite>
