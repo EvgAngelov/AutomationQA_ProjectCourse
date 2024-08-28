@@ -29,12 +29,15 @@ public class TestObject {
     }
 
     @BeforeMethod
+
     protected final void setUpTest(){
         this.webDriver = new ChromeDriver(configChromeOptions());
         this.webDriver.manage().window().maximize();
         this.webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         this.webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
+
+
     @AfterMethod
     protected final void tearDownTest(ITestResult testResult){
         takeScreenshot(testResult);
@@ -63,6 +66,7 @@ public class TestObject {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setExperimentalOption("prefs", prefs);
         chromeOptions.addArguments("disable-popup-blocking");
+        chromeOptions.addArguments("--disable-search-engine-choice-screen");
 
         return chromeOptions;
     }

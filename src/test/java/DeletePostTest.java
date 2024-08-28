@@ -1,3 +1,6 @@
+import Factory.DeletePost;
+import Factory.Header;
+import Factory.HomePage;
 import Objects.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -5,6 +8,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class DeletePostTest extends TestObject {
+
+
 
     @DataProvider(name = "getUser")
     public Object[][] getUsers() {
@@ -16,8 +21,8 @@ public class DeletePostTest extends TestObject {
         WebDriver webDriver = super.getWebDriver();
         HomePage homePage = new HomePage(webDriver);
         Header header = new Header(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
-        ProfilePage profilePage = new ProfilePage(webDriver);
+        LoginPageO loginPage = new LoginPageO(webDriver);
+        ProfilePageO profilePage = new ProfilePageO(webDriver);
         DeletePost deletePost = new DeletePost(webDriver);
 
         homePage.navigateTo();

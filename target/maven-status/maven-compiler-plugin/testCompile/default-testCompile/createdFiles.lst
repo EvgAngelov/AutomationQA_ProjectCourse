@@ -1,7 +1,7 @@
-Tests.class
+SignUpTest.class
 LogOutTest.class
 DeletePostTest.class
+UploadPostTest.class
 LikeButtonTest.class
-Screenshot.class
+TestObject.class
 LoginTest.class
-signUpTest.class

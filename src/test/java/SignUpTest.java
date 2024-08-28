@@ -1,3 +1,4 @@
+import Factory.SignUpPage;
 import Objects.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -8,7 +9,7 @@ public class SignUpTest extends TestObject {
 
     @DataProvider(name = "getUser")
     public Object[][] getUser() {
-        return new Object[][]{{"Shelby", "Shelby@mail.com", "Shelby", "Shelby"},};
+        return new Object[][]{{"Shelby", "Shelby@gmail.com", "Shelby", "Shelby"},};
     }
 
     @Test(dataProvider = "getUser")
@@ -17,7 +18,7 @@ public class SignUpTest extends TestObject {
         WebDriver webDriver = super.getWebDriver();
         HomePage homePage = new HomePage(webDriver);
         Header header = new Header(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
+        LoginPageO loginPage = new LoginPageO(webDriver);
         SignUpPage signUpPage = new SignUpPage(webDriver);
 
         homePage.navigateTo();
@@ -37,9 +38,9 @@ public class SignUpTest extends TestObject {
 
         signUpPage.clickSignUp();
 
-        signUpPage.waitForMessage();
+        signUpPage.waitForErrorMessage();
 
-        String actualText = signUpPage.waitForMessage();
+        String actualText = signUpPage.waitForErrorMessage();
         String expectedText = "Username taken";
         Assert.assertEquals(actualText, expectedText,"Expected text is not equals with actual text!");
     }

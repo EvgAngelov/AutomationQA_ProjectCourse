@@ -16,9 +16,9 @@ public class LogOutTest extends TestObject {
         WebDriver webDriver = super.getWebDriver();
         HomePage homePage = new HomePage(webDriver);
         Header header = new Header(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
-        ProfilePage profilePage = new ProfilePage(webDriver);
-        LogOutPage logOutPage = new LogOutPage(webDriver);
+        LoginPageO loginPage = new LoginPageO(webDriver);
+        ProfilePageO profilePage = new ProfilePageO(webDriver);
+        LogOutPageО logOutPage = new LogOutPageО(webDriver);
 
         homePage.navigateTo();
         Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded");

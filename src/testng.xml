@@ -8,6 +8,7 @@
             <class name="LikeButtonTest"></class>
             <class name="DeletePostTest"></class>
             <class name="LogOutTest"></class>
+            <class name="UploadPostTest"></class>
         </classes>
     </test>
 </suite>

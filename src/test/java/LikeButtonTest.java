@@ -1,18 +1,11 @@
-import Objects.Header;
+import Factory.Header;
+import Factory.LikeButton;
 import Objects.HomePage;
-import Objects.LikeButtonObject;
-import Objects.LoginPage;
-import org.openqa.selenium.By;
+import Objects.LoginPageO;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class LikeButtonTest extends TestObject {
 
@@ -26,8 +19,8 @@ public class LikeButtonTest extends TestObject {
         WebDriver webDriver = super.getWebDriver();
         HomePage homePage = new HomePage(webDriver);
         Header header = new Header(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
-        LikeButtonObject likeButton = new LikeButtonObject(webDriver);
+        LoginPageO loginPage = new LoginPageO(webDriver);
+        LikeButton likeButton = new LikeButton(webDriver);
 
         homePage.navigateTo();
         Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded");

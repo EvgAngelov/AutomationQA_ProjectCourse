@@ -1,9 +1,10 @@
 Objects\ProfilePage.class
 Objects\HomePage.class
+Objects\UploadPage.class
 org\example\Main.class
 Objects\DeletePost.class
-Objects\ExitPage.class
+Objects\SignUpPage.class
 Objects\LoginPage.class
-Factory\Header.class
 Objects\Header.class
-Objects\RegisterPage.class
+Objects\LogOutPage.class
+Objects\LikeButtonObject.class
